@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="system/modules/piwikanalytics/languages/de/tl_page.php" source-language="de">
+    <body>
+ 	  <trans-unit id="tl_page.piwik_legend">
+        <source>Piwik statistic settings</source>
+      </trans-unit>
+
+	  <trans-unit id="tl_page.piwikEnabled.0">
+        <source>Enable Piwik statistics</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikEnabled.1">
+        <source>Adds the Piwik javascript tag to the site.</source>
+      </trans-unit>
+ 	  <trans-unit id="tl_page.piwikIgnoreMembers.0">
+        <source>Ignore members</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikIgnoreMembers.1">
+        <source>Don´t track members who are logged in into the Contao frontend.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikIgnoreUsers.0">
+        <source>Ignore users</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikIgnoreUsers.1">
+        <source>Don´t track users who are logged in into the Contao backend.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikPath.0">
+        <source>URL of the Piwik installation</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikPath.1">
+        <source>The absolute URL to Piwik installation (with http(s)://).</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikSiteID.0">
+        <source>Site ID</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikSiteID.1">
+        <source>The ID of the website created in Piwik.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikPageTitle.0">
+        <source>Use the page title</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikPageTitle.1">
+        <source>Use the page title (Meta information) instead of the page name.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikAddDomain.0">
+        <source>Add the domain name</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikAddDomain.1">
+        <source>Add the domain name to the page title (domain/pagetitle).</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikAddSiteStructure.0">
+        <source>Map the site structure</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikAddSiteStructure.1">
+        <source>Add the site structure to the page title (rootpage/parentpage/pagetitle).</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikCustVarLanguage.0">
+        <source>Add site language (as Custom Variable)</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCustVarLanguage.1">
+        <source>Adds a custom variable with the name 'Language' and the current page language as value.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikCustVarUserName.0">
+        <source>Add member name (as Custom Variable)</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCustVarUserName.1">
+        <source>Adds a custom variable with the name 'User' and the name of the logged in user or 'Anonymous' for visitors as value.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikDoNotTrack.0">
+        <source>React to 'Do Not Track' request</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikDoNotTrack.1">
+        <source>Respect if visitor do not wish to be tracked.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikCookieDomains.0">
+        <source>Track visitors across all subdomains</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCookieDomains.1">
+        <source>Tracks visitors as unique if they visit multiple subdomains (e.g. a.domain.tld and b.domain.tld).</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikDomains.0">
+        <source>Local Domains</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikDomains.1">
+        <source>A comma separated list of Domains that are treated as local Domains (Links to these domains will not tracked as Outlinks).</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikSubdomains.0">
+        <source>Include all Subdomains as local</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikSubdomains.1">
+        <source>Treat all Subdomains as local Domains (Links to subdomains will not tracked as Outlinks).</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwik404.0">
+        <source>Show reference to &lt;em&gt;404 Page not found&lt;/em&gt; seperate</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwik404.1">
+        <source>You have the possibility to show references to &lt;em&gt;404 Page not found&lt;/em&gt; in the piwik statistic seperate. So you can find "dead links" easier.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikAllContentImpressions.0">
+        <source>Track all content impressions</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikAllContentImpressions.1">
+        <source>You can enable to track piece of content (e.g. advertising). Mark each content block with a [data-track-content] HTML attribute or [piwikTrackContent] CSS class. View Piwik Documentation about content tracking.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikVisibleContentImpressions.0">
+        <source>Track visible content impressions</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikVisibleContentImpressions.1">
+        <source>This is mainly the same as "Track all content impression" but it will only track visible content blocks or when they become visible (e.g. when they in in the viewport after scrolling down).</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikExtensions.0">
+        <source>Download extensions</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikExtensions.1">
+        <source>List of file extensions that will be tracked as a download.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikCustVarVisitName.0">
+        <source>Custom variable name</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCustVarVisitName.1">
+        <source>Enter the name for the custom variable with the scope 'visit'.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikCustVarVisitValue.0">
+        <source>Custom variable value</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCustVarVisitValue.1">
+        <source>Enter a value for the custom variable (with "+ javascript command +" you can add javascript variables e.g. "+document.domain+").</source>
+      </trans-unit>
+ 	  <trans-unit id="tl_page.piwikCatEnabled.0">
+        <source>Add custom variable</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCatEnabled.1">
+        <source>Adds a custom variable defined by yourself.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikCustVarPageName.0">
+        <source>Custom variable name</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCustVarPageName.1">
+        <source>Enter the name for the custom variable with the scope 'page'.</source>
+      </trans-unit>
+	  <trans-unit id="tl_page.piwikCustVarPageValue.0">
+        <source>Custom variable value</source>
+      </trans-unit>
+      <trans-unit id="tl_page.piwikCustVarPageValue.1">
+        <source>Enter a value for the custom variable (with "+ javascript command +" you can add javascript variables e.g. "+document.domain+").</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
