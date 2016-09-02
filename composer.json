@@ -1,7 +1,7 @@
 {
     "name": "agoat/piwikanalytics-bundle",
     "type": "contao-bundle",
-    "description": "Contao image on demand library",
+    "description": "Contao piwik analytics extension",
     "license": "LGPL-3.0+",
     "authors": [
         {
