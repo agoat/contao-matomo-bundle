@@ -24,8 +24,8 @@ class PiwikAnalytics extends Frontend
 	public function trackingCode ($strContent, $strTemplate)
 	{
 		$objPage = $GLOBALS['objPage'];
-		$siteDetails = $this->getPageDetails($objPage->rootId);
-		$pageDetails = $this->getPageDetails($objPage->id);
+		$siteDetails = \PageModel::findWithDetails($objPage->rootId);
+		$pageDetails = \PageModel::findWithDetails($objPage->id);
 
 		if($siteDetails->piwikEnabled) 
 		{
