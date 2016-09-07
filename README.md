@@ -1,5 +1,5 @@
-# Contao 4 Extension-bundle
-piwik analytics for contao 4
+# Contao Piwik Analytics extension
+Contao 4 bundle
 
 ___
 
