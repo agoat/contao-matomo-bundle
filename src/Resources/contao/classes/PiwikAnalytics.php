@@ -30,9 +30,9 @@ class PiwikAnalytics extends Frontend
 		if($siteDetails->piwikEnabled) 
 		{
 			if($siteDetails->piwikIgnoreUsers AND Input::cookie('BE_USER_AUTH'))
-				$jsTag = '<!-- PiwikTrackingTag: Tracking users disabled -->\n';
+				$jsTag = '<!-- PiwikTrackingTag: Tracking users disabled -->' . "\n";
 			elseif($siteDetails->piwikIgnoreMembers AND FE_USER_LOGGED_IN)
-				$jsTag = '<!-- PiwikTrackingTag: Tracking members disabled -->\n';
+				$jsTag = '<!-- PiwikTrackingTag: Tracking members disabled -->' . "\n";
 			else
 			{
 				$url 		= $siteDetails->piwikPath;
