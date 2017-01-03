@@ -13,6 +13,7 @@
 
 namespace Agoat;
 
+use Contao\Environment;
 use Contao\Frontend;
 use Contao\Request;
 use Contao\Input;
