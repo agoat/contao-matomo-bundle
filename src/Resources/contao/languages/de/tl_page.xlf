@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-  <file datatype="php" original="system/modules/piwikanalytics/languages/en/tl_page.php" source-language="en" target-language="de">
+  <file datatype="php" original="src/Resources/languages/en/tl_page.php" source-language="en" target-language="de">
     <body>
  	  <trans-unit id="tl_page.piwik_legend">
         <target>Piwik Statistik Einstellungen</target>
