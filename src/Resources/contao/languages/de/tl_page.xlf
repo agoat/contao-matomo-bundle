@@ -2,143 +2,130 @@
 <xliff version="1.1">
   <file datatype="php" original="src/Resources/languages/en/tl_page.php" source-language="en" target-language="de">
     <body>
- 	  <trans-unit id="tl_page.piwik_legend">
+      <trans-unit id="tl_page.piwik_legend">
         <target>Piwik Statistik Einstellungen</target>
       </trans-unit>
-
-	  <trans-unit id="tl_page.piwikEnabled.0">
+      <trans-unit id="tl_page.piwikEnabled.0">
         <target>Piwik Statistik aktivieren</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikEnabled.1">
         <target>Fügt der Internetseite den Piwik-Javascript-Tag hinzu.</target>
       </trans-unit>
- 	  <trans-unit id="tl_page.piwikIgnoreMembers.0">
-        <target>Benutzer ignorieren</target>
-      </trans-unit>
-      <trans-unit id="tl_page.piwikIgnoreMembers.1">
-        <target>Benutzer, die im Backend eingeloggt sind, werden ignoriert und nicht getrackt.</target>
-      </trans-unit>
-	  <trans-unit id="tl_page.piwikIgnoreUsers.0">
-        <target>Mitglieder ignorieren</target>
-      </trans-unit>
-      <trans-unit id="tl_page.piwikIgnoreUsers.1">
-        <target>Mitglieder, die im Backend eingeloggt sind, werden ignoriert und nicht getrackt.</target>
-      </trans-unit>
-	  <trans-unit id="tl_page.piwikPath.0">
+      <trans-unit id="tl_page.piwikPath.0">
         <target>URL der Piwik-Installation</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikPath.1">
         <target>Bitte geben Sie die absolute URL zur Piwik-Installation mit Protokoll (mit http(s)://) ein.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikSiteID.0">
+      <trans-unit id="tl_page.piwikSiteID.0">
         <target>Seiten-ID</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikSiteID.1">
         <target>Die ID der Seite, wie sie in Piwik angelegt wurde.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikPageTitle.0">
-        <target>Seiten-Titel verwenden</target>
+      <trans-unit id="tl_page.piwikPageTitle.0">
+      <target>Seiten-Titel verwenden</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikPageTitle.1">
         <target>Verwendet den Seitentitel (Meta-Information) anstatt des Seitennames in der Statistik.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikAddDomain.0">
+      <trans-unit id="tl_page.piwikAddDomain.0">
         <target>Den Domainnamen hinzufügen</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikAddDomain.1">
         <target>Fügt den Domainnamen zum Seiten-Titel hinzu (Domainname/Seiten-Titel).</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikAddSiteStructure.0">
+      <trans-unit id="tl_page.piwikAddSiteStructure.0">
         <target>Seitenstruktur abbilden</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikAddSiteStructure.1">
         <target>Fügt die Seitenstruktur zum Seiten-Titel hinzu (Startpunkt der Webseite/Übergeordnete Seite/Seiten-Titel).</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikCustVarLanguage.0">
+      <trans-unit id="tl_page.piwikCustVarLanguage.0">
         <target>Die Sprache hinzufügen (als Benutzerdefinierte Variable)</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCustVarLanguage.1">
         <target>Fügt eine Benutzerdefinierte Variable mit dem Namen 'Language' und der aktuellen Sprache der Seite als Wert hinzu.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikCustVarUserName.0">
+      <trans-unit id="tl_page.piwikCustVarUserName.0">
         <target>Den Mitgliedsnamen hinzufügen (als Benutzerdefinierte Variable)</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCustVarUserName.1">
         <target>Fügt eine Benutzerdefinierte Variable mit dem Namen 'User' und den Namen des angemeldeten Benutzers oder 'Anonymous' für anonyme Besucher als Wert hinzu.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikDoNotTrack.0">
+      <trans-unit id="tl_page.piwikDoNotTrack.0">
         <target>Auf 'Do Not Track' Anforderung reagieren</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikDoNotTrack.1">
         <target>Berücksichtigt wenn ein Benutzer nicht getrackt werden will.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikCookieDomains.0">
+      <trans-unit id="tl_page.piwikCookieDomains.0">
         <target>Besucher über mehrere Subdomains verfolgen</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCookieDomains.1">
         <target>Besucher werden über mehrere Subdomains hinweg als ein Besucher getrackt (z.B. a.domain.tld und b.domain.tld).</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikDomains.0">
+      <trans-unit id="tl_page.piwikDomains.0">
         <target>Lokale Domains</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikDomains.1">
         <target>Eine komma separierte Liste mit Domainnamen, die als lokale Domain behandelt werden sollen (Links zu diesen Domains werden nicht als abgehende externe Links registriert).</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikSubdomains.0">
+      <trans-unit id="tl_page.piwikSubdomains.0">
         <target>Alle Subdomains als lokal ansehen</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikSubdomains.1">
         <target>Es werden alle Subdomains als lokale Domain behalndelt (Links zu Subdomains werden nicht als abgehende externe Links registriert).</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwik404.0">
+      <trans-unit id="tl_page.piwik404.0">
         <target>Verweis auf &lt;em&gt;404 Seite nicht gefunden&lt;/em&gt; gesondert anzeigen</target>
       </trans-unit>
       <trans-unit id="tl_page.piwik404.1">
         <target>Sie haben die Möglichkeit Verweise auf nicht gefundene Seiten (Seitentyp: &lt;em&gt;404 Seite nicht gefunden&lt;/em&gt;) sich in der Piwik-Statistik mit den Verweisen auf diese Seiten gesondert anzeigen zu lassen. So können Sie "tote Links" auf Ihrer Internetseite leichter ausfindig zu machen.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikAllContentImpressions.0">
+      <trans-unit id="tl_page.piwikAllContentImpressions.0">
         <target>Registriere alle Inhaltsimpressionen</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikAllContentImpressions.1">
         <target>Hiermit kann die Anzeige von Inhaltselementen (z.B. Werbung) verfolgt werden. Dazu ist jedes zu verfolgende Element mit dem HTML Attribut [data-track-content] oder mit der CSS Klasse [piwikTrackContent] zu kennzeichnen. Für weitere Informationen zur Inhaltsverfolgung(Content tracking) bitte in der Dokumentation von Piwik nachsehen.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikVisibleContentImpressions.0">
+      <trans-unit id="tl_page.piwikVisibleContentImpressions.0">
         <target>Registriere sichtbare Inhaltsimpressionen</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikVisibleContentImpressions.1">
         <target>Dies ist prinzipiell das selbe wie "Registriere alle Inhaltsimpressionen". Es werden hier aber nur die sichtbaren Inhaltsblöcke gezählt bzw. dann wenn sie sichtbar werden (z.B. wenn Sie beim scrollen angezeigt werden).</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikExtensions.0">
+      <trans-unit id="tl_page.piwikExtensions.0">
         <target>Dateiendungen für Download-Liste</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikExtensions.1">
         <target>Hier können Sie die kommagetrennte Liste der Dateiendungen anpassen, die in der Piwik-Statistik als Download gewertet werden.<br />Lassen Sie das Feld leer, um die Standard-Endungen wieder herzustellen.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikCustVarVisitName.0">
+      <trans-unit id="tl_page.piwikCustVarVisitName.0">
         <target>Name für benutzerdefinierte Variable</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCustVarVisitName.1">
         <target>Hier kann der Name für eine benutzerdefinierte Variable, die für den Besucher aufgezeichnet wird, eingegeben werden.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikCustVarVisitValue.0">
+      <trans-unit id="tl_page.piwikCustVarVisitValue.0">
         <target>Wert für benutzerdefinierte Variable</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCustVarVisitValue.1">
         <target>Hier den Wert für die benutzerdefinierte Variable eingeben (mit "+ Javascript-Befehl +" kann eine Javascript-Variable verwendet werden, z.B. "+document.domain+").</target>
       </trans-unit>
- 	  <trans-unit id="tl_page.piwikCatEnabled.0">
+      <trans-unit id="tl_page.piwikCatEnabled.0">
         <target>Eine benutzerdefinierte Variable einfügen</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCatEnabled.1">
         <target>Fügt eine benutzerdefinierte Variable für die Seite hinzu.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikCustVarPageName.0">
+      <trans-unit id="tl_page.piwikCustVarPageName.0">
         <target>Name für benutzerdefinierte Variable</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCustVarPageName.1">
         <target>Hier kann der Name für eine benutzerdefinierte Variable, die für jeden Seitenaufruf aufgezeichnet wird, eingegeben werden.</target>
       </trans-unit>
-	  <trans-unit id="tl_page.piwikCustVarPageValue.0">
+      <trans-unit id="tl_page.piwikCustVarPageValue.0">
         <target>Wert für benutzerdefinierte Variable</target>
       </trans-unit>
       <trans-unit id="tl_page.piwikCustVarPageValue.1">
