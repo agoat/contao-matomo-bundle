@@ -12,17 +12,17 @@
       <trans-unit id="tl_page.piwikEnabled.1">
         <source>Adds the Piwik javascript tag to the site.</source>
       </trans-unit>
- 	  <trans-unit id="tl_page.piwikIgnoreMembers.0">
+      <trans-unit id="tl_page.piwikIgnoreMembers.0">
         <source>Ignore members</source>
       </trans-unit>
       <trans-unit id="tl_page.piwikIgnoreMembers.1">
-        <source>Don´t track members who are logged in into the Contao frontend.</source>
+        <source>Don´t track members who are logged into the Contao frontend.</source>
       </trans-unit>
 	  <trans-unit id="tl_page.piwikIgnoreUsers.0">
         <source>Ignore users</source>
       </trans-unit>
       <trans-unit id="tl_page.piwikIgnoreUsers.1">
-        <source>Don´t track users who are logged in into the Contao backend.</source>
+        <source>Don´t track users who are logged into the Contao backend.</source>
       </trans-unit>
 	  <trans-unit id="tl_page.piwikPath.0">
         <source>URL of the Piwik installation</source>
