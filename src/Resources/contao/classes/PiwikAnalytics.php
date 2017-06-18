@@ -14,12 +14,11 @@
 namespace Agoat;
 
 use Contao\Environment;
-use Contao\Frontend;
 use Contao\Request;
 use Contao\Input;
 
 
-class PiwikAnalytics extends Frontend
+class PiwikAnalytics extends \Contao\Frontend
 {
 
 	public function trackingCode ($strContent, $strTemplate)
@@ -66,7 +65,7 @@ class PiwikAnalytics extends Frontend
 					// add page structure
 					if($siteDetails->piwikAddSiteStructure)
 					{
-						$objPages = PageModel::findParentsById($objPage->pid);
+						$objPages = \PageModel::findParentsById($objPage->pid);
 						if ($objPages !== null)
 						{
 							while ($objPages->next())
@@ -205,4 +204,3 @@ class PiwikAnalytics extends Frontend
 	}
 
 }
-
