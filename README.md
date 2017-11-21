@@ -20,7 +20,7 @@ A public available Piwik installation is needed (Self-hosted or Cloud-hosted doe
 ### Contao manager
 Search for the package and install it
 ```bash
-agoat/contao-autoprefixer
+agoat/contao-piwikanalytics
 ```
 
 ### Managed edition
