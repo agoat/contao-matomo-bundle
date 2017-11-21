@@ -39,9 +39,7 @@
             "src/Resources/contao/templates"
         ]
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Agoat\\PiwikAnalyticsBundle\\Test\\": "tests/"
-        }
+    "extra": {
+        "contao-manager-plugin": "Agoat\\PiwikAnalyticsBundle\\ContaoManager\\Plugin"
     }
 }
