@@ -1,58 +1,70 @@
 <?php
 
-/**
- * Contao Open Source CMS
+/*
+ * Piwik analytics plugin for Contao Open Source CMS.
  *
- * Copyright (c) 2005-2015 Leo Feyer
- *
- * @package  	 Piwik Analytics
- * @author   	 Arne Stappen
- * @license  	 LGPL-3.0+ 
- * @copyright	 Arne Stappen 2011-2015
+ * @copyright  Arne Stappen (alias aGoat) 2017
+ * @package    contao-piwikanalytics
+ * @author     Arne Stappen <mehh@agoat.xyz>
+ * @link       https://agoat.xyz
+ * @license    LGPL-3.0
  */
 
-namespace Agoat;
+namespace Agoat\PiwikAnalytics;
 
+use Contao\Frontend;
 use Contao\Environment;
 use Contao\Request;
 use Contao\Input;
+use Contao\Widget;
 
 
-class PiwikAnalytics extends \Contao\Frontend
+/**
+ * Provide methods to handle piwik tracking code and urls
+ */
+class PiwikAnalytics extends Frontend
 {
-
+ 	/**
+	 * Insert the tracking code for piwik
+	 *
+	 * @param string $strContent The page content
+	 * @param string $strTemplate The page template
+	 *
+	 * @return string The page content
+	 */
 	public function trackingCode ($strContent, $strTemplate)
 	{
 		$objPage = $GLOBALS['objPage'];
+		
 		$siteDetails = \PageModel::findWithDetails($objPage->rootId);
 		$pageDetails = \PageModel::findWithDetails($objPage->id);
 
-		if($siteDetails->piwikEnabled) 
+		if ($siteDetails->piwikEnabled) 
 		{
-			if($siteDetails->piwikIgnoreUsers AND Input::cookie('BE_USER_AUTH'))
+			if ($siteDetails->piwikIgnoreUsers AND Input::cookie('BE_USER_AUTH'))
 				$jsTag = '<!-- PiwikTrackingTag: Tracking users disabled -->' . "\n";
-			elseif($siteDetails->piwikIgnoreMembers AND FE_USER_LOGGED_IN)
+			elseif ($siteDetails->piwikIgnoreMembers AND FE_USER_LOGGED_IN)
 				$jsTag = '<!-- PiwikTrackingTag: Tracking members disabled -->' . "\n";
 			else
 			{
-				$url 		= $siteDetails->piwikPath;
+				$url = $siteDetails->piwikPath;
 				$extensions	= str_replace(' ', '', $siteDetails->piwikExtensions);
-				$domain		= $objPage->domain ? $objPage->domain : Environment::get('host');
+				$domain = $objPage->domain ? $objPage->domain : Environment::get('host');
 			
-				$jsTag  = '<script type="text/javascript">' . "\n";
+				$jsTag = '<script type="text/javascript">' . "\n";
 				$jsTag .= 'var _paq = _paq || []; ' . "\n";
 				
 				// 404 errors
-				if($siteDetails->piwik404 AND $objPage->type == 'error_404')
+				if ($siteDetails->piwik404 AND $objPage->type == 'error_404')
 				{
 					$jsTag .= ' _paq.push(["setDocumentTitle", "404/URL = " + encodeURIComponent(document.location.pathname+document.location.search) + "/From = " + encodeURIComponent(document.referrer)]);' . "\n";
 				}
 				
-				// set document title
+				// Set document title
 				else
 				{
-					// use page title
-					if($siteDetails->piwikPageTitle)
+					// Use page title
+					if ($siteDetails->piwikPageTitle)
 					{
 						$title = $objPage->pageTitle ? $objPage->pageTitle : $objPage->title;
 					}
@@ -62,8 +74,8 @@ class PiwikAnalytics extends \Contao\Frontend
 
 					}
 					
-					// add page structure
-					if($siteDetails->piwikAddSiteStructure)
+					// Add page structure
+					if ($siteDetails->piwikAddSiteStructure)
 					{
 						$objPages = \PageModel::findParentsById($objPage->pid);
 						if ($objPages !== null)
@@ -75,31 +87,31 @@ class PiwikAnalytics extends \Contao\Frontend
 							$pretitle = implode("/", array_reverse($pretitles)) . "/";
 						}
 					}
-					// add Domainname
+					// Add Domainname
 					$title = $siteDetails->piwikAddDomain ? $domain . '/' . $pretitle . $title : $pretitle . $title;
 					$jsTag .= ' _paq.push(["setDocumentTitle", "' . $title . '"]);' . "\n";
 				}
 				
-				// notice if the user do not wish to be tracked
-				if($siteDetails->piwikDoNotTrack) 
+				// Notice if the user do not wish to be tracked
+				if ($siteDetails->piwikDoNotTrack) 
 				{
 					$jsTag .= ' _paq.push(["setDoNotTrack", true]);' . "\n";
 				}
 				
-				// track user over subdomains
-				if($siteDetails->piwikCookieDomains) 
+				// Track user over subdomains
+				if ($siteDetails->piwikCookieDomains) 
 				{
 					$jsTag .= ' _paq.push(["setCookieDomain", "*.' . $domain . '"]);' . "\n";
 				}
 				
-				// set all subdomains to track as local
-				if($siteDetails->piwikSubdomains) 
+				// Set all subdomains to track as local
+				if( $siteDetails->piwikSubdomains) 
 				{
 					$jsTag .= ' _paq.push(["setDomains", "*.' . $domain . '"]);' . "\n";
 				}
 				
-				// set specific domains and Files&Assets URL as local
-				elseif(TL_FILES_URL || $objPage->staticSystem || $objPage->staticPlugins || $siteDetails->piwikDomains) 
+				// Set specific domains and Files&Assets URL as local
+				elseif (TL_FILES_URL || $objPage->staticSystem || $objPage->staticPlugins || $siteDetails->piwikDomains) 
 				{
 					$domains = array();
 					TL_FILES_URL ? $domains[] = str_replace(array("http:","https:","/"),"",TL_FILES_URL) : '';
@@ -109,35 +121,35 @@ class PiwikAnalytics extends \Contao\Frontend
 					$jsTag .= ' _paq.push(["setDomains", ["' . implode("\",\"",$domains) . '"]]);' . "\n";
 				}
 				
-				// set user language
-				if($siteDetails->piwikCustVarLanguage) 
+				// Set user language
+				if ($siteDetails->piwikCustVarLanguage) 
 				{
 					$jsTag .= ' _paq.push(["setCustomVariable", 1, "Language", "' . $objPage->language . '", "visit"]);' . "\n";
 				}
 				
-				// set user logged in status
-				if($siteDetails->piwikCustVarUserName) 
+				// Set user logged in status
+				if ($siteDetails->piwikCustVarUserName) 
 				{
 					$this->import('FrontendUser', 'User');
 					$userstatus = (FE_USER_LOGGED_IN) ? $this->User->firstname . ' ' . $this->User->lastname . ' (' . $this->User->username . ')' : 'Anonymous';
 					$jsTag .= ' _paq.push(["setCustomVariable", 2, "User", "' . $userstatus . '", "visit"]);' . "\n";
 				}
 				
-				// set custom variable for visit 
-				if($siteDetails->piwikCustVarVisitName && $siteDetails->piwikCustVarVisitValue) 
+				// Set custom variable for visit 
+				if ($siteDetails->piwikCustVarVisitName && $siteDetails->piwikCustVarVisitValue) 
 				{
 					$jsTag .= ' _paq.push(["setCustomVariable", 3, "' . $siteDetails->piwikCustVarVisitName . '", "' . $siteDetails->piwikCustVarVisitValue . '", "visit"]);' . "\n";
 				}
 				
 				
-				// set custom variable for page
-				if($pageDetails->piwikCatEnabled && $pageDetails->piwikCustVarPageName && $pageDetails->piwikCustVarPageValue) 
+				// Set custom variable for page
+				if ($pageDetails->piwikCatEnabled && $pageDetails->piwikCustVarPageName && $pageDetails->piwikCustVarPageValue) 
 				{
 					$jsTag .= ' _paq.push(["setCustomVariable", 1, "' .$pageDetails->piwikCustVarPageName . '", "' . $pageDetails->piwikCustVarPageValue . '", "page"]);' . "\n";
 				}
 				
-				// set download extensions (if not default)
-				if($extensions != '7z,aac,arc,arj,asf,asx,avi,bin,bz,bz2,csv,deb,dmg,doc,exe,flv,gif,gz,gzip,hqx,jar,jpg,jpeg,js,mp2,mp3,mp4,mpg,mpeg,mov,movie,msi,msp,odb,odf,odg,odp,ods,odt,ogg,ogv,pdf,phps,png,ppt,qt,qtm,ra,ram,rar,rpm,sea,sit,tar,tbz,tbz2,tgz,torrent,txt,wav,wma,wmv,wpd,xls,xml,z,zip')
+				// Set download extensions (if not default)
+				if ($extensions != '7z,aac,arc,arj,asf,asx,avi,bin,bz,bz2,csv,deb,dmg,doc,exe,flv,gif,gz,gzip,hqx,jar,jpg,jpeg,js,mp2,mp3,mp4,mpg,mpeg,mov,movie,msi,msp,odb,odf,odg,odp,ods,odt,ogg,ogv,pdf,phps,png,ppt,qt,qtm,ra,ram,rar,rpm,sea,sit,tar,tbz,tbz2,tgz,torrent,txt,wav,wma,wmv,wpd,xls,xml,z,zip')
 				{
 					$extensions = str_replace(',', '|', $extensions);
 				
@@ -147,7 +159,7 @@ class PiwikAnalytics extends \Contao\Frontend
 				$jsTag .= ' _paq.push(["trackPageView"]);' . "\n";
 				$jsTag .= ' _paq.push(["enableLinkTracking"]);' . "\n";
 
-				// set content tracking (trackAllContentImpressions or trackVisibleContentImpressions);
+				// Set content tracking (trackAllContentImpressions or trackVisibleContentImpressions);
 				if ($siteDetails->piwikAllContentImpressions && !$siteDetails->piwikVisibleContentImpressions)
 				{
 					$jsTag .= ' _paq.push(["trackAllContentImpressions"]);' . "\n";
@@ -176,7 +188,16 @@ class PiwikAnalytics extends \Contao\Frontend
 	}
 
 	
-	public function validatePiwikPath($strRegexp, $varValue, \Contao\Widget $objWidget)
+ 	/**
+	 * Validate the path and connection to the piwik server instance
+	 *
+	 * @param string $strRegexp The regex type
+	 * @param string $varValue The value to validate
+	 * @param Widget $objWidget The Reference to the widget
+	 *
+	 * @return true|false
+	 */
+	public function validatePiwikPath($strRegexp, $varValue, Widget $objWidget)
 	{
 		if($strRegexp == 'piwikPath')
 		{
@@ -202,5 +223,4 @@ class PiwikAnalytics extends \Contao\Frontend
 		
 		return false;
 	}
-
 }

@@ -1,27 +1,26 @@
 <?php
 
-/**
- * Contao Open Source CMS
+/*
+ * Piwik analytics plugin for Contao Open Source CMS.
  *
- * Copyright (c) 2005-2015 Leo Feyer
- *
- * @package  	 Piwik Analytics
- * @author   	 Arne Stappen
- * @license  	 LGPL-3.0+ 
- * @copyright	 Arne Stappen 2011-2015
+ * @copyright  Arne Stappen (alias aGoat) 2017
+ * @package    contao-piwikanalytics
+ * @author     Arne Stappen <mehh@agoat.xyz>
+ * @link       https://agoat.xyz
+ * @license    LGPL-3.0
  */
  
  
 /**
  * Add palette to tl_page
  */  
-// root page 
+// Root page 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'piwikEnabled';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('{publish_legend}', '{piwik_legend},piwikEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['piwikEnabled'] = 'piwikPath,piwikSiteID,piwikIgnoreMembers,piwikIgnoreUsers,piwikCustVarUserName,piwikCustVarLanguage,piwikPageTitle,piwikAddDomain,piwikAddSiteStructure,piwikDoNotTrack,piwikAllContentImpressions,piwikVisibleContentImpressions,piwik404,piwikCookieDomains,piwikDomains,piwikSubdomains,piwikExtensions,piwikCustVarVisitName,piwikCustVarVisitValue';
 
-// regular page
+// Regular page
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'piwikCatEnabled';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace('{publish_legend}', '{piwik_legend},piwikCatEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
@@ -172,11 +171,8 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'long clr'),
-			'load_callback'	=> array(
-				array('tl_layout_PiwikTrackingTag', 'extensions')
-			),
 			'save_callback'	=> array(
-				array('tl_layout_PiwikTrackingTag', 'extensions')
+				array('tl_layout_PiwikTrackingTag', 'defaultExtensions')
 			),
 			'sql'			=> "text NULL"
 		),
@@ -207,10 +203,19 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
 );
 
 
-
+/**
+ * Provide methods that are used by the data configuration array.
+ */
 class tl_layout_PiwikTrackingTag extends Backend
 {
-	public function extensions($value)
+	/**
+	 * Set the default piwik extensions if empty
+	 *
+	 * @param string $value
+	 *
+	 * @return string $value
+	 */
+	public function defaultExtensions($value)
 	{
 		if(trim($value) == '') 
 			return $GLOBALS['TL_DCA']['tl_page']['fields']['piwikExtensions']['default'];

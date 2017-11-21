@@ -1,21 +1,20 @@
 <?php
 
-/**
- * Contao Open Source CMS
+/*
+ * Piwik analytics plugin for Contao Open Source CMS.
  *
- * Copyright (c) 2005-2015 Leo Feyer
- *
- * @package  	 Piwik Analytics
- * @author   	 Arne Stappen
- * @license  	 LGPL-3.0+ 
- * @copyright	 Arne Stappen 2011-2015
+ * @copyright  Arne Stappen (alias aGoat) 2017
+ * @package    contao-piwikanalytics
+ * @author     Arne Stappen <mehh@agoat.xyz>
+ * @link       https://agoat.xyz
+ * @license    LGPL-3.0
  */
- 
+
  
 /**
  * Add Hooks
  */
 
-$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] 	= array('Agoat\\PiwikAnalytics', 'trackingCode');
-$GLOBALS['TL_HOOKS']['addCustomRegexp'][] 			= array('Agoat\\PiwikAnalytics', 'validatePiwikPath');
+$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] 	= array('Agoat\\PiwikAnalytics\\PiwikAnalytics', 'trackingCode');
+$GLOBALS['TL_HOOKS']['addCustomRegexp'][] 			= array('Agoat\\PiwikAnalytics\\PiwikAnalytics', 'validatePiwikPath');
 
