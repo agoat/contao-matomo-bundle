@@ -15,7 +15,7 @@ namespace Agoat\PiwikAnalyticsBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Configures the Agoat piwik analytics bundle.
+ * Configures the piwik analytics bundle.
  */
 class AgoatPiwikAnalyticsBundle extends Bundle
 {
