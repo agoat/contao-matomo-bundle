@@ -217,10 +217,7 @@ class tl_layout_PiwikTrackingTag extends Backend
 	 */
 	public function defaultExtensions($value)
 	{
-		if(trim($value) == '') 
-			return $GLOBALS['TL_DCA']['tl_page']['fields']['piwikExtensions']['default'];
-		else
-			return $value;
+		return (empty($value)) ? $GLOBALS['TL_DCA']['tl_page']['fields']['piwikExtensions']['default'] : $value;
 	}
 }
 

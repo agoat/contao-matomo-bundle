@@ -15,6 +15,6 @@
  * Add Hooks
  */
 
-$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] 	= array('Agoat\\PiwikAnalytics\\PiwikAnalytics', 'trackingCode');
-$GLOBALS['TL_HOOKS']['addCustomRegexp'][] 			= array('Agoat\\PiwikAnalytics\\PiwikAnalytics', 'validatePiwikPath');
+$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] 	= array('Agoat\\PiwikAnalyticsBundle\\Contao\\PiwikAnalytics', 'trackingCode');
+$GLOBALS['TL_HOOKS']['addCustomRegexp'][] 			= array('Agoat\\PiwikAnalyticsBundle\\Contao\\PiwikAnalytics', 'validatePiwikPath');
 
