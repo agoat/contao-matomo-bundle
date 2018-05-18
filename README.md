@@ -20,14 +20,14 @@ A public available Matomo/Piwik installation is needed (Self-hosted or Cloud-hos
 ### Contao manager
 Search for the package and install it
 ```bash
-agoat/contao-matomoanalytics
+agoat/contao-matomo
 ```
 
 ### Managed edition
 Add the package
 ```bash
 # Using the composer
-composer require agoat/contao-matomoanalytics
+composer require agoat/contao-matomo
 ```
 Registration and configuration is done by the manager-plugin automatically.
 
@@ -35,7 +35,7 @@ Registration and configuration is done by the manager-plugin automatically.
 Add the package
 ```bash
 # Using the composer
-composer require agoat/contao-matomoanalytics
+composer require agoat/contao-matomo
 ```
 Register the bundle in the AppKernel
 ```php
