@@ -1,33 +1,33 @@
-# Piwik analytic and statistic plugin for Contao 4
+# Matomo analytic and statistic plugin for Contao 4
 
 [![Version](https://img.shields.io/packagist/v/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
 [![License](https://img.shields.io/packagist/l/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
 [![Downloads](https://img.shields.io/packagist/dt/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
 
 ## About
-Add **piwik** statistics easily to your contao website. Simply activate piwik tracking on the root page and set the required parameters.
+Add **Matomo** statistics easily to your contao website. Simply activate piwik tracking on the root page and set the required parameters.
 
-For more information about [Piwik] visit their web page.
+For more information about [Matomo] visit their web page.
 
-[Piwik]: https://piwik.org/
+[Matomo]: https://matomo.org/
 
 ## Requirements
-Piwik is a 'Open Analytics Platform'. The tracking will be saved outside of contao.
+Matomo (formerly piwik) is a 'Open Analytics Platform'. The tracking will be saved outside of contao.
 
-A public available Piwik installation is needed (Self-hosted or Cloud-hosted doesn't matter).
+A public available Matomo/Piwik installation is needed (Self-hosted or Cloud-hosted doesn't matter).
 
 ## Install
 ### Contao manager
 Search for the package and install it
 ```bash
-agoat/contao-piwikanalytics
+agoat/contao-matomoanalytics
 ```
 
 ### Managed edition
 Add the package
 ```bash
 # Using the composer
-composer require agoat/contao-piwikanalytics
+composer require agoat/contao-matomoanalytics
 ```
 Registration and configuration is done by the manager-plugin automatically.
 
@@ -35,7 +35,7 @@ Registration and configuration is done by the manager-plugin automatically.
 Add the package
 ```bash
 # Using the composer
-composer require agoat/contao-piwikanalytics
+composer require agoat/contao-matomoanalytics
 ```
 Register the bundle in the AppKernel
 ```php
