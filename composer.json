@@ -1,7 +1,7 @@
 {
-    "name": "agoat/contao-piwikanalytics",
-    "description": "Contao 4 piwik analytics plugin",
-    "keywords": ["contao", "contao4", "contao-bundle", "plugin", "piwik", "tracking", "statistic", "analytic", "visitors"],
+    "name": "agoat/contao-matomo",
+    "description": "Matomo statistics for Contao 4",
+    "keywords": ["contao", "contao4", "contao-bundle", "plugin", "matomo", "piwik", "tracking", "statistic", "analytic", "visitors"],
     "type": "contao-bundle",
     "license": "LGPL-3.0+",
     "authors": [
@@ -11,8 +11,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/agoat/contao-piwikanalytics-bundle/issues",
-        "source": "https://github.com/agoat/contao-piwikanalytics-bundle"
+        "issues": "https://github.com/agoat/contao-matomo-bundle/issues",
+        "source": "https://github.com/agoat/contao-matomo-bundle"
     },
     "require": {
         "php": "^5.6|^7.0",
@@ -23,7 +23,8 @@
         "phpunit/phpunit": "~4.5"
     },
     "replace": {
-        "contao-legacy/piwikanalytics": "*"
+        "contao-legacy/piwikanalytics": "*",
+        "agoat/contao-piwikanalytics": "*"
     },
     "autoload": {
         "psr-4": {
