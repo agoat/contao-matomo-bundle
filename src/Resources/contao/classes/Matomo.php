@@ -1,16 +1,16 @@
 <?php
 
 /*
- * Piwik analytics plugin for Contao Open Source CMS.
+ * Matomo analytics plugin for Contao Open Source CMS.
  *
  * @copyright  Arne Stappen (alias aGoat) 2017
- * @package    contao-piwikanalytics
+ * @package    contao-matomo-bundle
  * @author     Arne Stappen <mehh@agoat.xyz>
  * @link       https://agoat.xyz
  * @license    LGPL-3.0
  */
 
-namespace Agoat\PiwikAnalyticsBundle\Contao;
+namespace Agoat\MatomoBundle\Contao;
 
 use Contao\Frontend;
 use Contao\Environment;
@@ -20,12 +20,12 @@ use Contao\Widget;
 
 
 /**
- * Provide methods to handle piwik tracking code and urls
+ * Provide methods to handle matomo tracking code and urls
  */
-class PiwikAnalytics extends Frontend
+class Matomo extends Frontend
 {
  	/**
-	 * Insert the tracking code for piwik
+	 * Insert the tracking code for matomo
 	 *
 	 * @param string $strContent The page content
 	 * @param string $strTemplate The page template
@@ -39,23 +39,23 @@ class PiwikAnalytics extends Frontend
 		$siteDetails = \PageModel::findWithDetails($objPage->rootId);
 		$pageDetails = \PageModel::findWithDetails($objPage->id);
 
-		if ($siteDetails->piwikEnabled) 
+		if ($siteDetails->matomoEnabled) 
 		{
-			if ($siteDetails->piwikIgnoreUsers AND Input::cookie('BE_USER_AUTH'))
-				$jsTag = '<!-- PiwikTrackingTag: Tracking users disabled -->' . "\n";
-			elseif ($siteDetails->piwikIgnoreMembers AND FE_USER_LOGGED_IN)
-				$jsTag = '<!-- PiwikTrackingTag: Tracking members disabled -->' . "\n";
+			if ($siteDetails->matomoIgnoreUsers AND Input::cookie('BE_USER_AUTH'))
+				$jsTag = '<!-- MatomoTrackingTag: Tracking users disabled -->' . "\n";
+			elseif ($siteDetails->matomoIgnoreMembers AND FE_USER_LOGGED_IN)
+				$jsTag = '<!-- MatomoTrackingTag: Tracking members disabled -->' . "\n";
 			else
 			{
-				$url = $siteDetails->piwikPath;
-				$extensions	= str_replace(' ', '', $siteDetails->piwikExtensions);
+				$url = $siteDetails->matomoPath;
+				$extensions	= str_replace(' ', '', $siteDetails->matomoExtensions);
 				$domain = $objPage->domain ? $objPage->domain : Environment::get('host');
 			
 				$jsTag = '<script type="text/javascript">' . "\n";
 				$jsTag .= 'var _paq = _paq || []; ' . "\n";
 				
 				// 404 errors
-				if ($siteDetails->piwik404 AND $objPage->type == 'error_404')
+				if ($siteDetails->matomo404 AND $objPage->type == 'error_404')
 				{
 					$jsTag .= ' _paq.push(["setDocumentTitle", "404/URL = " + encodeURIComponent(document.location.pathname+document.location.search) + "/From = " + encodeURIComponent(document.referrer)]);' . "\n";
 				}
@@ -64,7 +64,7 @@ class PiwikAnalytics extends Frontend
 				else
 				{
 					// Use page title
-					if ($siteDetails->piwikPageTitle)
+					if ($siteDetails->matomoPageTitle)
 					{
 						$title = $objPage->pageTitle ? $objPage->pageTitle : $objPage->title;
 					}
@@ -75,7 +75,7 @@ class PiwikAnalytics extends Frontend
 					}
 					
 					// Add page structure
-					if ($siteDetails->piwikAddSiteStructure)
+					if ($siteDetails->matomoAddSiteStructure)
 					{
 						$objPages = \PageModel::findParentsById($objPage->pid);
 						if ($objPages !== null)
@@ -88,47 +88,47 @@ class PiwikAnalytics extends Frontend
 						}
 					}
 					// Add Domainname
-					$title = $siteDetails->piwikAddDomain ? $domain . '/' . $pretitle . $title : $pretitle . $title;
+					$title = $siteDetails->matomoAddDomain ? $domain . '/' . $pretitle . $title : $pretitle . $title;
 					$jsTag .= ' _paq.push(["setDocumentTitle", "' . $title . '"]);' . "\n";
 				}
 				
 				// Notice if the user do not wish to be tracked
-				if ($siteDetails->piwikDoNotTrack) 
+				if ($siteDetails->matomoDoNotTrack) 
 				{
 					$jsTag .= ' _paq.push(["setDoNotTrack", true]);' . "\n";
 				}
 				
 				// Track user over subdomains
-				if ($siteDetails->piwikCookieDomains) 
+				if ($siteDetails->matomoCookieDomains) 
 				{
 					$jsTag .= ' _paq.push(["setCookieDomain", "*.' . $domain . '"]);' . "\n";
 				}
 				
 				// Set all subdomains to track as local
-				if( $siteDetails->piwikSubdomains) 
+				if( $siteDetails->matomoSubdomains) 
 				{
 					$jsTag .= ' _paq.push(["setDomains", "*.' . $domain . '"]);' . "\n";
 				}
 				
 				// Set specific domains and Files&Assets URL as local
-				elseif (TL_FILES_URL || $objPage->staticSystem || $objPage->staticPlugins || $siteDetails->piwikDomains) 
+				elseif (TL_FILES_URL || $objPage->staticSystem || $objPage->staticPlugins || $siteDetails->matomoDomains) 
 				{
 					$domains = array();
 					TL_FILES_URL ? $domains[] = str_replace(array("http:","https:","/"),"",TL_FILES_URL) : '';
 					TL_PLUGINS_URL ? $domains[] = str_replace(array("http:","https:","/"),"",TL_PLUGINS_URL) : '';
-					$domains = $siteDetails->piwikDomains ? array_merge($domains,explode(",",str_replace(array("http://","https://"),"",$siteDetails->piwikDomains))) : $domains;
+					$domains = $siteDetails->matomoDomains ? array_merge($domains,explode(",",str_replace(array("http://","https://"),"",$siteDetails->matomoDomains))) : $domains;
 					$domains = array_unique($domains);
 					$jsTag .= ' _paq.push(["setDomains", ["' . implode("\",\"",$domains) . '"]]);' . "\n";
 				}
 				
 				// Set user language
-				if ($siteDetails->piwikCustVarLanguage) 
+				if ($siteDetails->matomoCustVarLanguage) 
 				{
 					$jsTag .= ' _paq.push(["setCustomVariable", 1, "Language", "' . $objPage->language . '", "visit"]);' . "\n";
 				}
 				
 				// Set user logged in status
-				if ($siteDetails->piwikCustVarUserName) 
+				if ($siteDetails->matomoCustVarUserName) 
 				{
 					$this->import('FrontendUser', 'User');
 					$userstatus = (FE_USER_LOGGED_IN) ? $this->User->firstname . ' ' . $this->User->lastname . ' (' . $this->User->username . ')' : 'Anonymous';
@@ -136,16 +136,16 @@ class PiwikAnalytics extends Frontend
 				}
 				
 				// Set custom variable for visit 
-				if ($siteDetails->piwikCustVarVisitName && $siteDetails->piwikCustVarVisitValue) 
+				if ($siteDetails->matomoCustVarVisitName && $siteDetails->matomoCustVarVisitValue) 
 				{
-					$jsTag .= ' _paq.push(["setCustomVariable", 3, "' . $siteDetails->piwikCustVarVisitName . '", "' . $siteDetails->piwikCustVarVisitValue . '", "visit"]);' . "\n";
+					$jsTag .= ' _paq.push(["setCustomVariable", 3, "' . $siteDetails->matomoCustVarVisitName . '", "' . $siteDetails->matomoCustVarVisitValue . '", "visit"]);' . "\n";
 				}
 				
 				
 				// Set custom variable for page
-				if ($pageDetails->piwikCatEnabled && $pageDetails->piwikCustVarPageName && $pageDetails->piwikCustVarPageValue) 
+				if ($pageDetails->matomoCatEnabled && $pageDetails->matomoCustVarPageName && $pageDetails->matomoCustVarPageValue) 
 				{
-					$jsTag .= ' _paq.push(["setCustomVariable", 1, "' .$pageDetails->piwikCustVarPageName . '", "' . $pageDetails->piwikCustVarPageValue . '", "page"]);' . "\n";
+					$jsTag .= ' _paq.push(["setCustomVariable", 1, "' .$pageDetails->matomoCustVarPageName . '", "' . $pageDetails->matomoCustVarPageValue . '", "page"]);' . "\n";
 				}
 				
 				// Set download extensions (if not default)
@@ -160,21 +160,21 @@ class PiwikAnalytics extends Frontend
 				$jsTag .= ' _paq.push(["enableLinkTracking"]);' . "\n";
 
 				// Set content tracking (trackAllContentImpressions or trackVisibleContentImpressions);
-				if ($siteDetails->piwikAllContentImpressions && !$siteDetails->piwikVisibleContentImpressions)
+				if ($siteDetails->matomoAllContentImpressions && !$siteDetails->matomoVisibleContentImpressions)
 				{
 					$jsTag .= ' _paq.push(["trackAllContentImpressions"]);' . "\n";
 				}
-				elseif ($siteDetails->piwikVisibleContentImpressions)
+				elseif ($siteDetails->matomoVisibleContentImpressions)
 				{
 					$jsTag .= ' _paq.push(["trackVisibleContentImpressions"]);' . "\n";				
 				}
 				
 				$jsTag .= '(function() {' . "\n";
-				$jsTag .= ' var u="' . $siteDetails->piwikPath .'";' . "\n";
-				$jsTag .= ' _paq.push(["setTrackerUrl", u+"piwik.php"]);' . "\n";
-				$jsTag .= ' _paq.push(["setSiteId", "' . $siteDetails->piwikSiteID . '"]);' . "\n";
+				$jsTag .= ' var u="' . $siteDetails->matomoPath .'";' . "\n";
+				$jsTag .= ' _paq.push(["setTrackerUrl", u+"matomo.php"]);' . "\n";
+				$jsTag .= ' _paq.push(["setSiteId", "' . $siteDetails->matomoSiteID . '"]);' . "\n";
 				$jsTag .= ' var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";' . "\n";
-				$jsTag .= ' g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);' . "\n";
+				$jsTag .= ' g.defer=true; g.async=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);' . "\n";
 				$jsTag .= '})();' . "\n";
 				$jsTag .= '</script>' . "\n";
 			}
@@ -189,7 +189,7 @@ class PiwikAnalytics extends Frontend
 
 	
  	/**
-	 * Validate the path and connection to the piwik server instance
+	 * Validate the path and connection to the matomo server instance
 	 *
 	 * @param string $strRegexp The regex type
 	 * @param string $varValue The value to validate
@@ -197,9 +197,9 @@ class PiwikAnalytics extends Frontend
 	 *
 	 * @return true|false
 	 */
-	public function validatePiwikPath($strRegexp, $varValue, Widget $objWidget)
+	public function validateMatomoPath($strRegexp, $varValue, Widget $objWidget)
 	{
-		if($strRegexp == 'piwikPath')
+		if($strRegexp == 'matomoPath')
 		{
 			if (!preg_match('/^[a-zA-Z0-9\.\+\/\?#%:,;\{\}\(\)\[\]@&=~_-]*$/', $varValue))
 			{
@@ -211,11 +211,11 @@ class PiwikAnalytics extends Frontend
 			$varValue = preg_replace('/\/+$/i', '', $varValue) . '/';
 			
 			$objRequest = new Request();
-			$objRequest->send($varValue . 'piwik.js');
+			$objRequest->send($varValue . 'matomo.js');
 			
 			if($objRequest->hasError())
 			{
-				$objWidget->addError(sprintf($GLOBALS['TL_LANG']['ERR']['piwikPath'], $objRequest->code, $objRequest->error));
+				$objWidget->addError(sprintf($GLOBALS['TL_LANG']['ERR']['matomoPath'], $objRequest->code, $objRequest->error));
 			
 				return true;
 			}

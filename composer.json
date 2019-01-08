@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Agoat\\PiwikAnalyticsBundle\\": "src/"
+            "Agoat\\MatomoBundle\\": "src/"
         },
         "classmap": [
             "src/Resources/contao"
@@ -41,6 +41,6 @@
         ]
     },
     "extra": {
-        "contao-manager-plugin": "Agoat\\PiwikAnalyticsBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Agoat\\MatomoBundle\\ContaoManager\\Plugin"
     }
 }

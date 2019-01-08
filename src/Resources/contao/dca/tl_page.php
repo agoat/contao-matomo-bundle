@@ -1,10 +1,10 @@
 <?php
 
 /*
- * Piwik analytics plugin for Contao Open Source CMS.
+ * Matomo analytics plugin for Contao Open Source CMS.
  *
  * @copyright  Arne Stappen (alias aGoat) 2017
- * @package    contao-piwikanalytics
+ * @package    contao-matomo-bundle
  * @author     Arne Stappen <mehh@agoat.xyz>
  * @link       https://agoat.xyz
  * @license    LGPL-3.0
@@ -15,16 +15,16 @@
  * Add palette to tl_page
  */  
 // Root page 
-$GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'piwikEnabled';
+$GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'matomoEnabled';
 
-$GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('{publish_legend}', '{piwik_legend},piwikEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['piwikEnabled'] = 'piwikPath,piwikSiteID,piwikIgnoreMembers,piwikIgnoreUsers,piwikCustVarUserName,piwikCustVarLanguage,piwikPageTitle,piwikAddDomain,piwikAddSiteStructure,piwikDoNotTrack,piwikAllContentImpressions,piwikVisibleContentImpressions,piwik404,piwikCookieDomains,piwikDomains,piwikSubdomains,piwikExtensions,piwikCustVarVisitName,piwikCustVarVisitValue';
+$GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('{publish_legend}', '{matomo_legend},matomoEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['matomoEnabled'] = 'matomoPath,matomoSiteID,matomoIgnoreMembers,matomoIgnoreUsers,matomoCustVarUserName,matomoCustVarLanguage,matomoPageTitle,matomoAddDomain,matomoAddSiteStructure,matomoDoNotTrack,matomoAllContentImpressions,matomoVisibleContentImpressions,matomo404,matomoCookieDomains,matomoDomains,matomoSubdomains,matomoExtensions,matomoCustVarVisitName,matomoCustVarVisitValue';
 
 // Regular page
-$GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'piwikCatEnabled';
+$GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'matomoCatEnabled';
 
-$GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace('{publish_legend}', '{piwik_legend},piwikCatEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['piwikCatEnabled'] = 'piwikCustVarPageName,piwikCustVarPageValue';
+$GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace('{publish_legend}', '{matomo_legend},matomoCatEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['matomoCatEnabled'] = 'matomoCustVarPageName,matomoCustVarPageValue';
 
 
 /**
@@ -32,167 +32,167 @@ $GLOBALS['TL_DCA']['tl_page']['subpalettes']['piwikCatEnabled'] = 'piwikCustVarP
  */ 
 $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
 	$GLOBALS['TL_DCA']['tl_page']['fields'], array(
-		'piwikEnabled' => array(
-			'label'         => &$GLOBALS['TL_LANG']['tl_page']['piwikEnabled'],
+		'matomoEnabled' => array(
+			'label'         => &$GLOBALS['TL_LANG']['tl_page']['matomoEnabled'],
 			'inputType'     => 'checkbox',
 			'exclude'       => true,
 			'eval'          => array('submitOnChange'=>true),
 			'sql'			=> "char(1) NOT NULL default ''"
 		),
-		'piwikPath' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikPath'],
+		'matomoPath' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoPath'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
-			'eval'			=> array('mandatory'=>true, 'rgxp'=>'piwikPath', 'trailingSlash'=>true, 'tl_class'=>'w50', 'maxlength'=>255),
+			'eval'			=> array('mandatory'=>true, 'rgxp'=>'matomoPath', 'trailingSlash'=>true, 'tl_class'=>'w50', 'maxlength'=>255),
 			'sql'			=> "varchar(255) NOT NULL default ''"
 		),
-		'piwikSiteID' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikSiteID'],
+		'matomoSiteID' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoSiteID'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('mandatory'=>true, 'rgxp'=>'digit', 'tl_class'=>'w50', 'maxlength'=>4),
 			'sql'			=> "varchar(4) NOT NULL default ''"
 		),	
-		'piwikIgnoreMembers' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikIgnoreMembers'],
+		'matomoIgnoreMembers' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoIgnoreMembers'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikIgnoreUsers' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikIgnoreUsers'],
+		'matomoIgnoreUsers' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoIgnoreUsers'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikDoNotTrack' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikDoNotTrack'],
+		'matomoDoNotTrack' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoDoNotTrack'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikCustVarUserName' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikCustVarUserName'],
+		'matomoCustVarUserName' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarUserName'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikCustVarLanguage' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikCustVarLanguage'],
+		'matomoCustVarLanguage' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarLanguage'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikPageTitle' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikPageTitle'],
+		'matomoPageTitle' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoPageTitle'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikAddDomain' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikAddDomain'],
+		'matomoAddDomain' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoAddDomain'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikAddSiteStructure' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikAddSiteStructure'],
+		'matomoAddSiteStructure' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoAddSiteStructure'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikCustVarVisitName' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikCustVarVisitName'],
+		'matomoCustVarVisitName' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarVisitName'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50 clr', 'maxlength'=>128),
 			'sql'			=> "varchar(128) NOT NULL default ''"
 		),
-		'piwikCustVarVisitValue' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikCustVarVisitValue'],
+		'matomoCustVarVisitValue' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarVisitValue'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50', 'maxlength'=>128),
 			'sql'			=> "varchar(128) NOT NULL default ''"
 		),
-		'piwikCookieDomains' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikCookieDomains'],
+		'matomoCookieDomains' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCookieDomains'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwik404' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwik404'],
+		'matomo404' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomo404'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikAllContentImpressions' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikAllContentImpressions'],
+		'matomoAllContentImpressions' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoAllContentImpressions'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikVisibleContentImpressions' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikVisibleContentImpressions'],
+		'matomoVisibleContentImpressions' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoVisibleContentImpressions'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikDomains' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikDomains'],
+		'matomoDomains' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoDomains'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50 clr', 'maxlength'=>255),
 			'sql'			=> "varchar(255) NOT NULL default ''"
 		),
-		'piwikSubdomains' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikSubdomains'],
+		'matomoSubdomains' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoSubdomains'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50 m12'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikExtensions' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikExtensions'],
+		'matomoExtensions' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoExtensions'],
 			'default'		=> '7z,aac,arc,arj,asf,asx,avi,bin,bz,bz2,csv,deb,dmg,doc,exe,flv,gif,gz,gzip,hqx,jar,jpg,jpeg,js,mp2,mp3,mp4,mpg,mpeg,mov,movie,msi,msp,odb,odf,odg,odp,ods,odt,ogg,ogv,pdf,phps,png,ppt,qt,qtm,ra,ram,rar,rpm,sea,sit,tar,tbz,tbz2,tgz,torrent,txt,wav,wma,wmv,wpd,xls,xml,z,zip',
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'long clr'),
 			'save_callback'	=> array(
-				array('tl_layout_PiwikTrackingTag', 'defaultExtensions')
+				array('tl_layout_MatomoTrackingTag', 'defaultExtensions')
 			),
 			'sql'			=> "text NULL"
 		),
 		
-		'piwikCatEnabled' => array(
-			'label'         => &$GLOBALS['TL_LANG']['tl_page']['piwikCatEnabled'],
+		'matomoCatEnabled' => array(
+			'label'         => &$GLOBALS['TL_LANG']['tl_page']['matomoCatEnabled'],
 			'inputType'     => 'checkbox',
 			'exclude'       => true,
 			'eval'          => array('submitOnChange'=>true),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'piwikCustVarPageName' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikCustVarPageName'],
+		'matomoCustVarPageName' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarPageName'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50 clr', 'maxlength'=>128),
 			'sql'			=> "varchar(128) NOT NULL default ''"
 		),
-		'piwikCustVarPageValue' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['piwikCustVarPageValue'],
+		'matomoCustVarPageValue' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarPageValue'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50', 'maxlength'=>128),
@@ -206,10 +206,10 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
 /**
  * Provide methods that are used by the data configuration array.
  */
-class tl_layout_PiwikTrackingTag extends Backend
+class tl_layout_MatomoTrackingTag extends Backend
 {
 	/**
-	 * Set the default piwik extensions if empty
+	 * Set the default matomo extensions if empty
 	 *
 	 * @param string $value
 	 *
@@ -217,7 +217,7 @@ class tl_layout_PiwikTrackingTag extends Backend
 	 */
 	public function defaultExtensions($value)
 	{
-		return (empty($value)) ? $GLOBALS['TL_DCA']['tl_page']['fields']['piwikExtensions']['default'] : $value;
+		return (empty($value)) ? $GLOBALS['TL_DCA']['tl_page']['fields']['matomoExtensions']['default'] : $value;
 	}
 }
 
