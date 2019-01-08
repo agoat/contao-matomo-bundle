@@ -14,7 +14,7 @@ For more information about [Matomo] visit their web page.
 [Matomo]: https://matomo.org/
 
 ## Attention
-When refactoring the naming from **piwik** to **matomo**, the names of the database fields have changed as well. Therefore some settings may be lost when updating to 1.2.* !!
+When refactoring the naming from **piwik** to **matomo**, the names of the database fields have changed as well. Therefore some settings may be lost when updating to 1.3.* !!
 
 ## Requirements
 Matomo (formerly piwik) is a 'Open Analytics Platform'. The tracking will be saved outside of contao.
