@@ -171,10 +171,10 @@ class Matomo extends Frontend
 				
 				$jsTag .= '(function() {' . "\n";
 				$jsTag .= ' var u="' . $siteDetails->matomoPath .'";' . "\n";
-				$jsTag .= ' _paq.push(["setTrackerUrl", u+"matomo.php"]);' . "\n";
+				$jsTag .= ' _paq.push(["setTrackerUrl", u+"piwik.php"]);' . "\n";
 				$jsTag .= ' _paq.push(["setSiteId", "' . $siteDetails->matomoSiteID . '"]);' . "\n";
 				$jsTag .= ' var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";' . "\n";
-				$jsTag .= ' g.defer=true; g.async=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);' . "\n";
+				$jsTag .= ' g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);' . "\n";
 				$jsTag .= '})();' . "\n";
 				$jsTag .= '</script>' . "\n";
 			}
