@@ -122,13 +122,13 @@ class Matomo extends Frontend
 				}
 				
 				// Set user language
-				if ($siteDetails->matomoCustVarLanguage) 
+				if ($siteDetails->matomoVarLanguage) 
 				{
 					$jsTag .= ' _paq.push(["setCustomVariable", 1, "Language", "' . $objPage->language . '", "visit"]);' . "\n";
 				}
 				
 				// Set user logged in status
-				if ($siteDetails->matomoCustVarUserName) 
+				if ($siteDetails->matomoVarUserName) 
 				{
 					$this->import('FrontendUser', 'User');
 					$userstatus = (FE_USER_LOGGED_IN) ? $this->User->firstname . ' ' . $this->User->lastname . ' (' . $this->User->username . ')' : 'Anonymous';
@@ -136,16 +136,16 @@ class Matomo extends Frontend
 				}
 				
 				// Set custom variable for visit 
-				if ($siteDetails->matomoCustVarVisitName && $siteDetails->matomoCustVarVisitValue) 
+				if ($siteDetails->matomoVarVisitName && $siteDetails->matomoVarVisitValue) 
 				{
-					$jsTag .= ' _paq.push(["setCustomVariable", 3, "' . $siteDetails->matomoCustVarVisitName . '", "' . $siteDetails->matomoCustVarVisitValue . '", "visit"]);' . "\n";
+					$jsTag .= ' _paq.push(["setCustomVariable", 3, "' . $siteDetails->matomoVarVisitName . '", "' . $siteDetails->matomoVarVisitValue . '", "visit"]);' . "\n";
 				}
 				
 				
 				// Set custom variable for page
-				if ($pageDetails->matomoCatEnabled && $pageDetails->matomoCustVarPageName && $pageDetails->matomoCustVarPageValue) 
+				if ($pageDetails->matomoCatEnabled && $pageDetails->matomoVarPageName && $pageDetails->matomoVarPageValue) 
 				{
-					$jsTag .= ' _paq.push(["setCustomVariable", 1, "' .$pageDetails->matomoCustVarPageName . '", "' . $pageDetails->matomoCustVarPageValue . '", "page"]);' . "\n";
+					$jsTag .= ' _paq.push(["setCustomVariable", 1, "' .$pageDetails->matomoVarPageName . '", "' . $pageDetails->matomoVarPageValue . '", "page"]);' . "\n";
 				}
 				
 				// Set download extensions (if not default)

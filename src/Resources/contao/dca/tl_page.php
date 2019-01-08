@@ -18,13 +18,13 @@
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'matomoEnabled';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('{publish_legend}', '{matomo_legend},matomoEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['matomoEnabled'] = 'matomoPath,matomoSiteID,matomoIgnoreMembers,matomoIgnoreUsers,matomoCustVarUserName,matomoCustVarLanguage,matomoPageTitle,matomoAddDomain,matomoAddSiteStructure,matomoDoNotTrack,matomoAllContentImpressions,matomoVisibleContentImpressions,matomo404,matomoCookieDomains,matomoDomains,matomoSubdomains,matomoExtensions,matomoCustVarVisitName,matomoCustVarVisitValue';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['matomoEnabled'] = 'matomoPath,matomoSiteID,matomoIgnoreMembers,matomoIgnoreUsers,matomoVarUserName,matomoVarLanguage,matomoPageTitle,matomoAddDomain,matomoAddSiteStructure,matomoDoNotTrack,matomoAllContentImpressions,matomoVisibleContentImpressions,matomo404,matomoCookieDomains,matomoDomains,matomoSubdomains,matomoExtensions,matomoVarVisitName,matomoVarVisitValue';
 
 // Regular page
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'matomoCatEnabled';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace('{publish_legend}', '{matomo_legend},matomoCatEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['matomoCatEnabled'] = 'matomoCustVarPageName,matomoCustVarPageValue';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['matomoCatEnabled'] = 'matomoVarPageName,matomoVarPageValue';
 
 
 /**
@@ -74,15 +74,15 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'matomoCustVarUserName' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarUserName'],
+		'matomoVarUserName' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoVarUserName'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'matomoCustVarLanguage' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarLanguage'],
+		'matomoVarLanguage' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoVarLanguage'],
 			'inputType'		=> 'checkbox',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50'),
@@ -109,15 +109,15 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
 			'eval'			=> array('tl_class'=>'w50'),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'matomoCustVarVisitName' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarVisitName'],
+		'matomoVarVisitName' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoVarVisitName'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50 clr', 'maxlength'=>128),
 			'sql'			=> "varchar(128) NOT NULL default ''"
 		),
-		'matomoCustVarVisitValue' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarVisitValue'],
+		'matomoVarVisitValue' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoVarVisitValue'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50', 'maxlength'=>128),
@@ -184,15 +184,15 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
 			'eval'          => array('submitOnChange'=>true),
 			'sql'			=> "char(1) NOT NULL default '0'"
 		),
-		'matomoCustVarPageName' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarPageName'],
+		'matomoVarPageName' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoVarPageName'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50 clr', 'maxlength'=>128),
 			'sql'			=> "varchar(128) NOT NULL default ''"
 		),
-		'matomoCustVarPageValue' => array(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoCustVarPageValue'],
+		'matomoVarPageValue' => array(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_page']['matomoVarPageValue'],
 			'inputType'		=> 'text',
 			'exclude'		=> true,
 			'eval'			=> array('tl_class'=>'w50', 'maxlength'=>128),

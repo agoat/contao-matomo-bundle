@@ -2,133 +2,133 @@
 <xliff version="1.1">
   <file datatype="php" original="src/Resources/languages/en/tl_page.php" source-language="en" target-language="de">
     <body>
-      <trans-unit id="tl_page.piwik_legend">
-        <target>Piwik Statistik Einstellungen</target>
+      <trans-unit id="tl_page.matomo_legend">
+        <target>Matomo (ehemals Piwik) Einstellungen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikEnabled.0">
-        <target>Piwik Statistik aktivieren</target>
+      <trans-unit id="tl_page.matomoEnabled.0">
+        <target>Matomo Tracking aktivieren</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikEnabled.1">
-        <target>Fügt der Internetseite den Piwik-Javascript-Tag hinzu.</target>
+      <trans-unit id="tl_page.matomoEnabled.1">
+        <target>Fügt der Internetseite den Matomo-Javascript-Tag hinzu.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikPath.0">
-        <target>URL der Piwik-Installation</target>
+      <trans-unit id="tl_page.matomoPath.0">
+        <target>URL der Matomo-Installation</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikPath.1">
-        <target>Bitte geben Sie die absolute URL zur Piwik-Installation mit Protokoll (mit http(s)://) ein.</target>
+      <trans-unit id="tl_page.matomoPath.1">
+        <target>Bitte geben Sie die absolute URL zur Matomo-Installation mit Protokoll (mit http(s)://) ein.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikSiteID.0">
+      <trans-unit id="tl_page.matomoSiteID.0">
         <target>Seiten-ID</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikSiteID.1">
-        <target>Die ID der Seite, wie sie in Piwik angelegt wurde.</target>
+      <trans-unit id="tl_page.matomoSiteID.1">
+        <target>Die ID der Seite, wie sie in Matomo angelegt wurde.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikPageTitle.0">
+      <trans-unit id="tl_page.matomoPageTitle.0">
       <target>Seiten-Titel verwenden</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikPageTitle.1">
+      <trans-unit id="tl_page.matomoPageTitle.1">
         <target>Verwendet den Seitentitel (Meta-Information) anstatt des Seitennames in der Statistik.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikAddDomain.0">
+      <trans-unit id="tl_page.matomoAddDomain.0">
         <target>Den Domainnamen hinzufügen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikAddDomain.1">
+      <trans-unit id="tl_page.matomoAddDomain.1">
         <target>Fügt den Domainnamen zum Seiten-Titel hinzu (Domainname/Seiten-Titel).</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikAddSiteStructure.0">
+      <trans-unit id="tl_page.matomoAddSiteStructure.0">
         <target>Seitenstruktur abbilden</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikAddSiteStructure.1">
+      <trans-unit id="tl_page.matomoAddSiteStructure.1">
         <target>Fügt die Seitenstruktur zum Seiten-Titel hinzu (Startpunkt der Webseite/Übergeordnete Seite/Seiten-Titel).</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarLanguage.0">
+      <trans-unit id="tl_page.matomoVarLanguage.0">
         <target>Die Sprache hinzufügen (als Benutzerdefinierte Variable)</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarLanguage.1">
+      <trans-unit id="tl_page.matomoVarLanguage.1">
         <target>Fügt eine Benutzerdefinierte Variable mit dem Namen 'Language' und der aktuellen Sprache der Seite als Wert hinzu.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarUserName.0">
+      <trans-unit id="tl_page.matomoVarUserName.0">
         <target>Den Mitgliedsnamen hinzufügen (als Benutzerdefinierte Variable)</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarUserName.1">
+      <trans-unit id="tl_page.matomoVarUserName.1">
         <target>Fügt eine Benutzerdefinierte Variable mit dem Namen 'User' und den Namen des angemeldeten Benutzers oder 'Anonymous' für anonyme Besucher als Wert hinzu.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikDoNotTrack.0">
+      <trans-unit id="tl_page.matomoDoNotTrack.0">
         <target>Auf 'Do Not Track' Anforderung reagieren</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikDoNotTrack.1">
+      <trans-unit id="tl_page.matomoDoNotTrack.1">
         <target>Berücksichtigt wenn ein Benutzer nicht getrackt werden will.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCookieDomains.0">
+      <trans-unit id="tl_page.matomoCookieDomains.0">
         <target>Besucher über mehrere Subdomains verfolgen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCookieDomains.1">
+      <trans-unit id="tl_page.matomoCookieDomains.1">
         <target>Besucher werden über mehrere Subdomains hinweg als ein Besucher getrackt (z.B. a.domain.tld und b.domain.tld).</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikDomains.0">
+      <trans-unit id="tl_page.matomoDomains.0">
         <target>Lokale Domains</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikDomains.1">
+      <trans-unit id="tl_page.matomoDomains.1">
         <target>Eine komma separierte Liste mit Domainnamen, die als lokale Domain behandelt werden sollen (Links zu diesen Domains werden nicht als abgehende externe Links registriert).</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikSubdomains.0">
+      <trans-unit id="tl_page.matomoSubdomains.0">
         <target>Alle Subdomains als lokal ansehen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikSubdomains.1">
+      <trans-unit id="tl_page.matomoSubdomains.1">
         <target>Es werden alle Subdomains als lokale Domain behalndelt (Links zu Subdomains werden nicht als abgehende externe Links registriert).</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwik404.0">
+      <trans-unit id="tl_page.matomo404.0">
         <target>Verweis auf &lt;em&gt;404 Seite nicht gefunden&lt;/em&gt; gesondert anzeigen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwik404.1">
-        <target>Sie haben die Möglichkeit Verweise auf nicht gefundene Seiten (Seitentyp: &lt;em&gt;404 Seite nicht gefunden&lt;/em&gt;) sich in der Piwik-Statistik mit den Verweisen auf diese Seiten gesondert anzeigen zu lassen. So können Sie "tote Links" auf Ihrer Internetseite leichter ausfindig zu machen.</target>
+      <trans-unit id="tl_page.matomo404.1">
+        <target>Sie haben die Möglichkeit Verweise auf nicht gefundene Seiten (Seitentyp: &lt;em&gt;404 Seite nicht gefunden&lt;/em&gt;) sich in der Matomo-Statistik mit den Verweisen auf diese Seiten gesondert anzeigen zu lassen. So können Sie "tote Links" auf Ihrer Internetseite leichter ausfindig zu machen.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikAllContentImpressions.0">
+      <trans-unit id="tl_page.matomoAllContentImpressions.0">
         <target>Registriere alle Inhaltsimpressionen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikAllContentImpressions.1">
-        <target>Hiermit kann die Anzeige von Inhaltselementen (z.B. Werbung) verfolgt werden. Dazu ist jedes zu verfolgende Element mit dem HTML Attribut [data-track-content] oder mit der CSS Klasse [piwikTrackContent] zu kennzeichnen. Für weitere Informationen zur Inhaltsverfolgung(Content tracking) bitte in der Dokumentation von Piwik nachsehen.</target>
+      <trans-unit id="tl_page.matomoAllContentImpressions.1">
+        <target>Hiermit kann die Anzeige von Inhaltselementen (z.B. Werbung) verfolgt werden. Dazu ist jedes zu verfolgende Element mit dem HTML Attribut [data-track-content] oder mit der CSS Klasse [matomoTrackContent] zu kennzeichnen. Für weitere Informationen zur Inhaltsverfolgung(Content tracking) bitte in der Dokumentation von Matomo nachsehen.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikVisibleContentImpressions.0">
+      <trans-unit id="tl_page.matomoVisibleContentImpressions.0">
         <target>Registriere sichtbare Inhaltsimpressionen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikVisibleContentImpressions.1">
+      <trans-unit id="tl_page.matomoVisibleContentImpressions.1">
         <target>Dies ist prinzipiell das selbe wie "Registriere alle Inhaltsimpressionen". Es werden hier aber nur die sichtbaren Inhaltsblöcke gezählt bzw. dann wenn sie sichtbar werden (z.B. wenn Sie beim scrollen angezeigt werden).</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikExtensions.0">
+      <trans-unit id="tl_page.matomoExtensions.0">
         <target>Dateiendungen für Download-Liste</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikExtensions.1">
-        <target>Hier können Sie die kommagetrennte Liste der Dateiendungen anpassen, die in der Piwik-Statistik als Download gewertet werden.<br />Lassen Sie das Feld leer, um die Standard-Endungen wieder herzustellen.</target>
+      <trans-unit id="tl_page.matomoExtensions.1">
+        <target>Hier können Sie die kommagetrennte Liste der Dateiendungen anpassen, die in der Matomo-Statistik als Download gewertet werden.<br />Lassen Sie das Feld leer, um die Standard-Endungen wieder herzustellen.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarVisitName.0">
+      <trans-unit id="tl_page.matomoVarVisitName.0">
         <target>Name für benutzerdefinierte Variable</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarVisitName.1">
+      <trans-unit id="tl_page.matomoVarVisitName.1">
         <target>Hier kann der Name für eine benutzerdefinierte Variable, die für den Besucher aufgezeichnet wird, eingegeben werden.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarVisitValue.0">
+      <trans-unit id="tl_page.matomoVarVisitValue.0">
         <target>Wert für benutzerdefinierte Variable</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarVisitValue.1">
+      <trans-unit id="tl_page.matomoVarVisitValue.1">
         <target>Hier den Wert für die benutzerdefinierte Variable eingeben (mit "+ Javascript-Befehl +" kann eine Javascript-Variable verwendet werden, z.B. "+document.domain+").</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCatEnabled.0">
+      <trans-unit id="tl_page.matomoCatEnabled.0">
         <target>Eine benutzerdefinierte Variable einfügen</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCatEnabled.1">
+      <trans-unit id="tl_page.matomoCatEnabled.1">
         <target>Fügt eine benutzerdefinierte Variable für die Seite hinzu.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarPageName.0">
+      <trans-unit id="tl_page.matomoVarPageName.0">
         <target>Name für benutzerdefinierte Variable</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarPageName.1">
+      <trans-unit id="tl_page.matomoVarPageName.1">
         <target>Hier kann der Name für eine benutzerdefinierte Variable, die für jeden Seitenaufruf aufgezeichnet wird, eingegeben werden.</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarPageValue.0">
+      <trans-unit id="tl_page.matomoVarPageValue.0">
         <target>Wert für benutzerdefinierte Variable</target>
       </trans-unit>
-      <trans-unit id="tl_page.piwikCustVarPageValue.1">
+      <trans-unit id="tl_page.matomoVarPageValue.1">
         <target>Hier den Wert für die benutzerdefinierte Variable eingeben (mit "+ Javascript-Befehl +" kann eine Javascript-Variable verwendet werden, z.B. "+document.domain+").</target>
       </trans-unit>
     </body>

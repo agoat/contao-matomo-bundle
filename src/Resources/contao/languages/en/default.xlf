@@ -2,8 +2,8 @@
 <xliff version="1.1">
 	<file datatype="php" original="src/Resources/languages/en/default.php" source-language="en">
 		<body>
-			<trans-unit id="ERR.piwikPath">
-				<source>This URL does not link to a piwik installation (Error: %s %s).</source>
+			<trans-unit id="ERR.matomoPath">
+				<source>This URL does not link to a Matomo installation (Error: %s %s).</source>
 			</trans-unit>
 		</body>
 	</file>
