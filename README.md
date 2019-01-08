@@ -1,8 +1,8 @@
 # Matomo analytic and statistic plugin for Contao 4
 
-[![Version](https://img.shields.io/packagist/v/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
-[![License](https://img.shields.io/packagist/l/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
-[![Downloads](https://img.shields.io/packagist/dt/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
+[![Version](https://img.shields.io/packagist/v/agoat/contao-matomo.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-matomo)
+[![License](https://img.shields.io/packagist/l/agoat/contao-matomo.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-matomo)
+[![Downloads](https://img.shields.io/packagist/dt/agoat/contao-matomo.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-matomo)
 
 #### Now compatible with Contao 4.6 !!
 
