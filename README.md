@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/packagist/l/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
 [![Downloads](https://img.shields.io/packagist/dt/agoat/contao-piwikanalytics.svg?style=flat-square)](http://packagist.org/packages/agoat/contao-piwikanalytics)
 
+#### Now compatible with Contao 4.6 !!
+
 ## About
 Add **Matomo** statistics easily to your contao website. Simply activate piwik tracking on the root page and set the required parameters.
 
