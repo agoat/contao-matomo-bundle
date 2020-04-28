@@ -18,6 +18,11 @@
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'matomoEnabled';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('{publish_legend}', '{matomo_legend},matomoEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
+
+if (isset($GLOBALS['TL_DCA']['tl_page']['palettes']['rootfallback'])) {
+    $GLOBALS['TL_DCA']['tl_page']['palettes']['rootfallback'] = str_replace('{publish_legend}', '{matomo_legend},matomoEnabled;{publish_legend}', $GLOBALS['TL_DCA']['tl_page']['palettes']['rootfallback']);
+}
+
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['matomoEnabled'] = 'matomoPath,matomoSiteID,matomoIgnoreMembers,matomoIgnoreUsers,matomoVarUserName,matomoVarLanguage,matomoPageTitle,matomoAddDomain,matomoAddSiteStructure,matomoDoNotTrack,matomoAllContentImpressions,matomoVisibleContentImpressions,matomo404,matomoCookieDomains,matomoDomains,matomoSubdomains,matomoExtensions,matomoVarVisitName,matomoVarVisitValue';
 
 // Regular page
